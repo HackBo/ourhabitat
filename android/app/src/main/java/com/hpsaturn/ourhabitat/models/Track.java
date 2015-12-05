@@ -13,7 +13,6 @@ public class Track {
 
     public String alias;
 
-
     private int color;
 
     private boolean enable;
