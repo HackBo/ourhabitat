@@ -65,6 +65,11 @@ public class MainActivity extends BaseActivity implements OnMapReadyCallback{
     }
 
     @Override
+    void menuClearMap() {
+        if(mMapFragment!=null)mMapFragment.clearPolygon();
+    }
+
+    @Override
     public void onMapReady(GoogleMap googleMap) {
         mMapFragment.initMap(googleMap);
     }

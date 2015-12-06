@@ -15,4 +15,6 @@ public class Area {
 
     public List<Organism> organisms;
 
+    public List<Report> reports;
+
 }

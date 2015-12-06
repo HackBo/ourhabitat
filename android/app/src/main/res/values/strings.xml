@@ -11,4 +11,5 @@
     <string name="menu_radar">Radar</string>
     <string name="menu_ranking">Ranking</string>
     <string name="menu_challenge">Retos</string>
+    <string name="action_clear">Clear</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.hpsaturn.ourhabitat.fragments;
 
+import android.graphics.Color;
 import android.location.Location;
 import android.util.Log;
 
@@ -15,6 +16,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polygon;
+import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.hpsaturn.ourhabitat.Config;
 import com.hpsaturn.ourhabitat.models.Track;
@@ -42,6 +45,9 @@ public class MapHabitatFragment extends SupportMapFragment implements OnMapClick
 
     //    private MGPlatformApi platformApi = new MGPlatformApi();
     private Polyline lastPoline;
+    private boolean markerClicked;
+    PolygonOptions polygonOptions;
+    Polygon polygon;
 
     public void initMap(GoogleMap map) {
 
@@ -77,14 +83,14 @@ public class MapHabitatFragment extends SupportMapFragment implements OnMapClick
     }
 
     public void addMark(Track track) {
-        if (DEBUG)Log.d(TAG,"addMark: "+track.toString());
+        if (DEBUG) Log.d(TAG, "addMark: " + track.toString());
         Marker marker = map.addMarker(new MarkerOptions()
                         .position(new LatLng(track.loc.getLatitude(), track.loc.getLongitude()))
                         .title(track.alias)
         );
         hmIDs.put(track.loc.getTime(), marker.getId());
         hmMarks.put(track, marker);
-        animToPosition(new LatLng(track.loc.getLatitude(),track.loc.getLongitude()));
+        animToPosition(new LatLng(track.loc.getLatitude(), track.loc.getLongitude()));
         if (DEBUG) Log.d(TAG, "[MAP_FRAGMENT] addMark: " + marker.getId());
     }
 
@@ -99,24 +105,49 @@ public class MapHabitatFragment extends SupportMapFragment implements OnMapClick
     }
 
     @Override
-    public void onMapClick(LatLng latLng) {
-        if (DEBUG)
-            Log.d(TAG, "[MAP_FRAGMENT] onMapClick: " + latLng.latitude + "," + latLng.longitude);
+    public void onMapClick(LatLng point) {
+        if (DEBUG) Log.d(TAG, "[MAP_FRAGMENT] onMapClick: " + point.latitude + "," + point.longitude);
+//        tvLocInfo.setText(point.toString());
+        map.animateCamera(CameraUpdateFactory.newLatLng(point));
+        markerClicked = false;
+    }
 
+    @Override
+    public void onMapLongClick(LatLng point) {
+        if (DEBUG) Log.d(TAG, "[MAP_FRAGMENT] onMapLongClick: " + point.latitude + "," + point.longitude);
+//        tvLocInfo.setText("New marker added@" + point.toString());
+        map.addMarker(new MarkerOptions().position(point).title(point.toString()));
+        markerClicked = false;
     }
 
     @Override
     public boolean onMarkerClick(Marker marker) {
         if (DEBUG) Log.d(TAG, "[MAP_FRAGMENT] onMarkerClick: " + marker.getId());
-        return false;
+        if (markerClicked) {
+
+            if (polygon != null) {
+                polygon.remove();
+                polygon = null;
+            }
+
+            polygonOptions.add(marker.getPosition());
+            polygonOptions.strokeColor(Color.RED);
+            polygonOptions.fillColor(Color.BLUE);
+            polygon = map.addPolygon(polygonOptions);
+        } else {
+            if (polygon != null) {
+                polygon.remove();
+                polygon = null;
+            }
+
+            polygonOptions = new PolygonOptions().add(marker.getPosition());
+            markerClicked = true;
+        }
+
+        return true;
     }
 
-    @Override
-    public void onMapLongClick(LatLng latLng) {
-        if (DEBUG)
-            Log.d(TAG, "[MAP_FRAGMENT] onMapLongClick: " + latLng.latitude + "," + latLng.longitude);
 
-    }
 //
 //    public void paintRoute(RouteResponse routeResponse) {
 //
@@ -170,11 +201,15 @@ public class MapHabitatFragment extends SupportMapFragment implements OnMapClick
                 Track track = new Track();
                 track.trackId = trackId;
                 track.loc = loc;
-                track.alias=alias;
+                track.alias = alias;
                 data.add(track);
             }
             addPoints(data);
         } else if (DEBUG) Log.w(TAG, "no data");
     }
 
+    public void clearPolygon() {
+        if(polygon!=null)polygon.remove();
+        map.clear();
+    }
 }

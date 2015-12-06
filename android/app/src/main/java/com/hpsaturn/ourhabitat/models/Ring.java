@@ -13,7 +13,7 @@ public class Ring {
 
     public boolean enable=true;
 
-    public List<Contact> contacts;
+    public List<User> contacts;
 
     public String getName() {
         return name;
@@ -23,11 +23,11 @@ public class Ring {
         this.name = name;
     }
 
-    public void setContacts(List<Contact> contacts) {
+    public void setContacts(List<User> contacts) {
         this.contacts = contacts;
     }
 
-    public List<Contact> getContacts(){return contacts;}
+    public List<User> getContacts(){return contacts;}
 
     public void setDescription(String description) {
         this.description = description;

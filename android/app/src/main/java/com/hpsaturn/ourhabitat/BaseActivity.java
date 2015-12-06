@@ -214,7 +214,8 @@ public abstract class BaseActivity extends AppCompatActivity implements OnNaviga
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_clear) {
+            menuClearMap();
             return true;
         }
 
@@ -258,6 +259,8 @@ public abstract class BaseActivity extends AppCompatActivity implements OnNaviga
     abstract void showHelp();
 
     abstract void showAbout();
+
+    abstract void menuClearMap();
 
     public void getContact() {
 //        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);

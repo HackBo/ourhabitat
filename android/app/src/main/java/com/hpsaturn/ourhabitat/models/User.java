@@ -5,27 +5,27 @@ import android.graphics.Bitmap;
 /**
  * Created by Antonio Vanegas @hpsaturn on 11/5/15.
  */
-public class Contact {
+public class User {
 
-    public String name;
+    public String username;
 
     public String phone;
 
     public Bitmap photo;
 
-    public Contact(String name, String phone, Bitmap photo) {
-        this.name=name;
+    public User(String name, String phone, Bitmap photo) {
+        this.username =name;
         this.phone=phone;
         this.photo=photo;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
     @Override
     public String toString() {
-        return "name: "+name+" phone:"+phone;
+        return "username: "+ username +" phone:"+phone;
     }
 
     public String getPhone() {
