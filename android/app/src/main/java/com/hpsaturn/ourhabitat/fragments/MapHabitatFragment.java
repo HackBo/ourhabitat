@@ -29,9 +29,9 @@ import java.util.Map;
 /**
  * Created by Antonio Vanegas @hpsaturn on 4/9/15.
  */
-public class MapTasksFragment extends SupportMapFragment implements OnMapClickListener, OnMarkerClickListener, OnMapLongClickListener {
+public class MapHabitatFragment extends SupportMapFragment implements OnMapClickListener, OnMarkerClickListener, OnMapLongClickListener {
 
-    public static final String TAG = MapTasksFragment.class.getSimpleName();
+    public static final String TAG = MapHabitatFragment.class.getSimpleName();
     private static final boolean DEBUG = Config.DEBUG && Config.DEBUG_MAP;
 
     private static final int ANIM_TIME = 1600;

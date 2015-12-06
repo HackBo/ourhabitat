@@ -2,22 +2,11 @@ package com.hpsaturn.ourhabitat;
 
 import android.Manifest;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.hpsaturn.ourhabitat.fragments.MapTasksFragment;
+import com.hpsaturn.ourhabitat.fragments.MapHabitatFragment;
 
 /**
  * Created by Antonio Vanegas @hpsaturn on 4/9/15.
@@ -25,7 +14,7 @@ import com.hpsaturn.ourhabitat.fragments.MapTasksFragment;
 
 public class MainActivity extends BaseActivity implements OnMapReadyCallback{
 
-    private MapTasksFragment mMapFragment;
+    private MapHabitatFragment mMapFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +29,10 @@ public class MainActivity extends BaseActivity implements OnMapReadyCallback{
 
     private void showMapFragment() {
 
-        if (mMapFragment == null) mMapFragment = new MapTasksFragment();
+        if (mMapFragment == null) mMapFragment = new MapHabitatFragment();
         if (mMapFragment != null && !mMapFragment.isVisible()) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.content_default, mMapFragment, MapTasksFragment.TAG);
+            ft.replace(R.id.content_default, mMapFragment, MapHabitatFragment.TAG);
             ft.commitAllowingStateLoss();
             mMapFragment.getMapAsync(this);
         }
