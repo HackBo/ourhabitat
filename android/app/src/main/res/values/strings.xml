@@ -12,4 +12,25 @@
     <string name="menu_ranking">Ranking</string>
     <string name="menu_challenge">Retos</string>
     <string name="action_clear">Clear</string>
+    <string name="add_dialog_organism">Que viste</string>
+    <string name="add_dialog_title">Nueva observación</string>
+    <string name="add_dialog_more">Más opciones</string>
+    <string name="add_dialog_less">Menos opciones</string>
+    <string name="default_city">Bogotá</string>
+    <string name="add_dialog_comment">Comentario</string>
+    <string name="add_dialog_city">Ciudad</string>
+    <string name="add_dialog_time">Hora</string>
+    <string name="add_dialog_date">Fecha</string>
+    <string name="add_dialog_priority">Estado</string>
+
+    <string-array name="priority_list">
+        <item>N/A</item>
+        <item>Trivial</item>
+        <item>Menor</item>
+        <item>Normal</item>
+        <item>Alta</item>
+        <item>Crítica</item>
+    </string-array>
+
+
 </resources>

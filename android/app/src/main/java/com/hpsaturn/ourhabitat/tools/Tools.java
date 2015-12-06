@@ -209,4 +209,19 @@ public class Tools {
         i.setData(Uri.parse(url));
         ctx.startActivity(i);
     }
+
+
+    public static long componentTimeToTimestamp(int year, int month, int day, int hour, int minute) {
+
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, month);
+        c.set(Calendar.DAY_OF_MONTH, day);
+        c.set(Calendar.HOUR, hour);
+        c.set(Calendar.MINUTE, minute);
+        c.set(Calendar.SECOND, 0);
+        c.set(Calendar.MILLISECOND, 0);
+
+        return c.getTimeInMillis();
+    }
 }

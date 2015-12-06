@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!--<TextView-->
+    <!--android:id="@+id/tx_add_dialog_title"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:gravity="center"-->
+    <!--android:textColor="@color/white"-->
+    <!--android:text="@string/add_dialog_title" />-->
+
+    <EditText
+        android:id="@+id/et_add_dialog_summary"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/add_dialog_margin_left"
+        android:layout_marginRight="@dimen/add_dialog_margin_right"
+        android:layout_marginTop="@dimen/add_dialog_margin"
+        android:hint="@string/add_dialog_organism"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/et_add_dialog_address"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_add_dialog_summary"
+        android:layout_marginLeft="@dimen/add_dialog_margin_left"
+        android:layout_marginRight="@dimen/add_dialog_margin_right"
+        android:layout_marginTop="@dimen/add_dialog_margin"
+        android:hint="@string/add_dialog_comment"
+        android:singleLine="true" />
+
+    <RelativeLayout
+        android:id="@+id/rl_add_dialog_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_add_dialog_address"
+        android:visibility="gone">
+
+        <!--<TextView-->
+        <!--android:id="@+id/tx_add_dialog_contact"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginRight="@dimen/add_dialog_margin_right"-->
+        <!--android:layout_marginLeft="@dimen/add_dialog_margin_left"-->
+        <!--android:layout_marginTop="@dimen/add_dialog_margin"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:text="@string/add_dialog_contact" />-->
+
+        <!--<Spinner-->
+        <!--android:id="@+id/sp_add_dialog_contacts"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--style="@style/Base.Theme.AppCompat.Light.Dialog.FixedSize"-->
+        <!--android:layout_below="@+id/tx_add_dialog_contact"-->
+        <!--android:layout_marginRight="@dimen/add_dialog_margin_right"-->
+        <!--android:layout_marginLeft="@dimen/add_dialog_margin_sp"-->
+        <!--android:layout_marginTop="@dimen/add_dialog_margin" />-->
+
+
+        <EditText
+            android:id="@+id/et_add_dialog_city"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/add_dialog_margin_left"
+            android:layout_marginRight="@dimen/add_dialog_margin_right"
+            android:layout_marginTop="@dimen/add_dialog_margin"
+            android:hint="@string/add_dialog_city"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/tx_add_dialog_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/et_add_dialog_city"
+            android:layout_marginLeft="@dimen/add_dialog_margin_left"
+            android:layout_marginRight="@dimen/add_dialog_margin_right"
+            android:layout_marginTop="15dp"
+            android:text="@string/add_dialog_time" />
+
+        <EditText
+            android:id="@+id/et_add_dialog_time"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tx_add_dialog_time"
+            android:layout_marginLeft="@dimen/add_dialog_margin_left"
+            android:layout_marginRight="@dimen/add_dialog_margin_right"
+            android:singleLine="true"
+            android:gravity="left"
+            android:text="00:00:00" />
+
+        <TextView
+            android:id="@+id/tx_add_dialog_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/tx_add_dialog_time"
+            android:layout_marginRight="@dimen/add_dialog_margin_right"
+            android:text="@string/add_dialog_date" />
+
+        <EditText
+            android:id="@+id/et_add_dialog_date"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tx_add_dialog_time"
+            android:layout_marginRight="@dimen/add_dialog_margin_right"
+            android:singleLine="true"
+            android:gravity="right"
+            android:text="0000.00.00" />
+
+        <TextView
+            android:id="@+id/tx_add_dialog_priority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_add_dialog_time"
+            android:layout_marginLeft="@dimen/add_dialog_margin_left"
+            android:layout_marginRight="@dimen/add_dialog_margin_right"
+            android:layout_marginTop="@dimen/add_dialog_margin"
+            android:text="@string/add_dialog_priority" />
+
+        <Spinner
+            android:id="@+id/sp_add_dialog_priority"
+            style="@style/Base.Theme.AppCompat.Light.Dialog.FixedSize"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tx_add_dialog_priority"
+            android:layout_marginLeft="@dimen/add_dialog_margin_sp"
+            android:layout_marginRight="@dimen/add_dialog_margin_right"
+            />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/bt_add_dialog_more"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/rl_add_dialog_more"
+        android:layout_marginLeft="15dp"
+        android:text="@string/add_dialog_more" />
+
+    <ImageButton
+        android:id="@+id/bt_add_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_add_dialog_more"
+        android:layout_centerHorizontal="true"
+        android:src="@android:drawable/ic_menu_save" />
+
+
+</RelativeLayout>
