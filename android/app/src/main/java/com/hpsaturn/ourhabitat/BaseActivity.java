@@ -10,7 +10,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.ContactsContract.CommonDataKinds;
 import android.provider.ContactsContract.Contacts;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.NavigationView.OnNavigationItemSelectedListener;
 import android.support.design.widget.Snackbar;
@@ -31,6 +30,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -49,7 +50,7 @@ public abstract class BaseActivity extends AppCompatActivity implements OnNaviga
 
     private Uri uriContact;
 
-    private FloatingActionButton _fab;
+    private FloatingActionButton _fab_add_area, _fab_add_obs;
 
     private OnPickerContact contactListener;
 
@@ -58,7 +59,11 @@ public abstract class BaseActivity extends AppCompatActivity implements OnNaviga
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        _fab = (FloatingActionButton) findViewById(R.id.fab);
+        _fab_add_area = (FloatingActionButton) findViewById(R.id.fab_home_add_area);
+        _fab_add_obs = (FloatingActionButton) findViewById(R.id.fab_home_add_observation);
+
+        _fab_add_area.setIconDrawable(getDrawable(R.drawable.ic_vector_triangle_black_36dp));
+        _fab_add_obs.setIconDrawable(getDrawable(R.drawable.ic_binoculars_black_36dp));
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -124,19 +129,19 @@ public abstract class BaseActivity extends AppCompatActivity implements OnNaviga
     }
 
     public void fabHide() {
-        _fab.setVisibility(View.GONE);
+        _fab_add_area.setVisibility(View.GONE);
     }
 
     public void fabShow() {
-        _fab.setVisibility(View.VISIBLE);
+        _fab_add_area.setVisibility(View.VISIBLE);
     }
 
     public void fabSetIcon(int resourse) {
-        _fab.setImageResource(resourse);
+        _fab_add_area.setImageResource(resourse);
     }
 
     public void fabSetOnClickListener(OnClickListener onButtonActionListener) {
-        _fab.setOnClickListener(onButtonActionListener);
+        _fab_add_area.setOnClickListener(onButtonActionListener);
     }
 
     public void showSnackLong(String msg) {
